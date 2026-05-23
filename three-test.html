@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html><head><meta charset="utf-8"></head><body>
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js"
+  }
+}
+</script>
+<script type="module">
+import * as THREE from 'three';
+const s = new THREE.Scene();
+const c = new THREE.PerspectiveCamera(70, 1, 0.1, 100);
+const r = new THREE.WebGLRenderer({antialias:true});
+r.setSize(200,200);
+document.body.prepend(r.domElement);
+const g = new THREE.MeshStandardMaterial({color:0x222222});
+const m = new THREE.Mesh(new THREE.BoxGeometry(1,1,1), g);
+s.add(m);
+r.render(s,c);
+console.log('Three.js test: OK');
+document.title = 'Three.js OK';
+</script>
+</body></html>
